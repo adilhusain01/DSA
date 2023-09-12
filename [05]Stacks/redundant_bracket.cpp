@@ -1,16 +1,12 @@
-#include <iostream>
-#include <stack>
+#include <bits/stdc++.h>
+
+bool checkbracketredundancy(string& str){
+    stack <char> st;
+    
+}
 
 using namespace std;
 
 int main(){
-    for int arr[]={"(","(","a","+","c",")",")"};
-    bool flag===false;
-
-    for(int i=0; i<7; i++){
-        if()
-    }
+    string str="((a+b))";
 }
-
-
-//{}}}  -> how much reverse to make it balanced
