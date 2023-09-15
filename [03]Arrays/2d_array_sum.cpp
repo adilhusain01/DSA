@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 int main(){
     int m,n;
     cout<<"Enter rows  : ";
@@ -60,7 +59,6 @@ int main(){
 
     if(maxcol>maxrow) cout<<"\n ---> The sum of col "<<maxcol_pos<<" is -> "<<maxcol<<" and greatest.\n"<<endl;
     else cout<<"\n ---> The sum of row "<<maxrow_pos<<" is -> "<<maxrow<<" and greatest.\n"<<endl;
-
 
     return 0;
 }
