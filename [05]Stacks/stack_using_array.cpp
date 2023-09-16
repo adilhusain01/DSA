@@ -29,6 +29,11 @@ class stack{
             }
         }
 
+        void peak(){
+            if(top<=-1) cout<<"Stack is empty, can't peak!"<<endl;
+            else cout<<arr[top]<<endl;
+        }
+
         void size(){
             cout<<"Size  of stack is -> "<<top+1<<endl;
         }
@@ -60,6 +65,10 @@ int main(){
     s1.push(1);
 
     s1.display();
+    cout<<endl;
+
+    //Checking peak function
+    s1.peak();
     cout<<endl;
 
     //Checking size function
