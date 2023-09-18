@@ -6,3 +6,4 @@ Functions :
             front()
             back()
             push()
+            pop()

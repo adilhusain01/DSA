@@ -9,8 +9,13 @@ int main(){
     q.push(4);
     q.push(5);
 
-    cout<<q.front()<<endl;
-    cout<<q.back()<<endl;
+    cout<<"Front -> "<<q.front()<<endl;
+    cout<<"Back -> "<<q.back()<<endl<<endl;
+
+    while(!q.empty()){
+        cout<<q.front()<<endl;
+        q.pop();
+    }
     
     return 0;
 }
