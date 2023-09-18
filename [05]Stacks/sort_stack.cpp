@@ -1,47 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insertAtBottom(stack <int> & s, int val){
-    if(s.empty()){
+//Constraints - No use of loops
+
+void sort(int val, stack <int> & s){
+    if(s.empty() || s.top()<val){
         s.push(val);
         return;
     }
 
     int temp=s.top();
     s.pop();
-    insertAtBottom(s, val);
+    sort(val, s);
     s.push(temp);
 }
 
-void reverseStack(stack <int> & s){
+void sorted(stack <int>  & s){
     if(s.empty()){
         return;
     }
-    
+
     int temp=s.top();
     s.pop();
-    reverseStack(s);
-    insertAtBottom(s, temp);
+    sorted(s);
+    sort(temp, s);
 }
 
 int main(){
     stack <int> s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
     s.push(5);
+    s.push(-2);
+    s.push(9);
+    s.push(-7);
+    s.push(3);
 
-    cout<<"Original stack : "<<endl;
+    cout<<"Original Stack : "<<endl;
     stack <int> temp=s;
     while(!temp.empty()){
         cout<<temp.top()<<endl;
         temp.pop();
     }
 
-    reverseStack(s);
+    sorted(s);
 
-    cout<<"\nReversed stack : "<<endl;
+    cout<<"\nSorted Stack : "<<endl;
     while(!s.empty()){
         cout<<s.top()<<endl;
         s.pop();
@@ -49,6 +51,3 @@ int main(){
 
     return 0;
 }
-
-//Time complexity - O(N^2)
-//Space complexity -
