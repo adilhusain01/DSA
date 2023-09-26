@@ -25,7 +25,7 @@ class queue{
 
     void pop(){
         if(top<=-1){
-            cout<<"Can't pop, queue is empty!"<<endl;
+            cout<<"Can't pop anymore, queue is empty!"<<endl;
             return;
         }
 
@@ -37,13 +37,21 @@ class queue{
     }
 
     void front(){
-        cout<<"Front -> "<<arr[0]<<endl;
-        return;
+        if(top<=-1){
+            cout<<"No front, the queue is empty!"<<endl;
+        } else {
+            cout<<"Front -> "<<arr[0]<<endl;
+            return;         
+        }
     }
 
     void back(){
-        cout<<"Back -> "<<arr[top]<<endl;
-        return;
+        if(top<=-1){
+            cout<<"No back, the queue is empty!"<<endl;
+        } else {
+            cout<<"Back -> "<<arr[top]<<endl;
+            return;
+        }
     }
 
     void display(){
