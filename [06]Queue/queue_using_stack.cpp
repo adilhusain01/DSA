@@ -55,7 +55,7 @@ class QueueStack{
 
     void front(){
         if(q.empty()){
-            cout<<"Can't pop, Queue is empty"<<endl;
+            cout<<"No front, Queue is empty"<<endl;
             return;
         }
 
@@ -74,7 +74,7 @@ class QueueStack{
 
     void back(){
         if(q.empty()){
-            cout<<"Can't pop, Queue is empty"<<endl;
+            cout<<"No back, Queue is empty"<<endl;
             return;
         }
 
@@ -83,19 +83,19 @@ class QueueStack{
 };
 
 int main(){
-    QueueStack q1;
-    q1.push(1);
-    q1.push(2);
-    q1.push(3);
-    q1.push(4);
+    QueueStack q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
 
-    q1.display();
+    q.display();
 
-    q1.pop();
-    q1.pop();
+    q.pop();
+    q.pop();
 
-    q1.front();
-    q1.back();
+    q.front();
+    q.back();
 
     return 0;
 }

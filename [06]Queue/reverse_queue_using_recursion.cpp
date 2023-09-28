@@ -7,10 +7,10 @@ void insertAtTop(int val, queue <int> & q){
         return;
     }
 
-    int temp=s.front();
-    s.pop();
+    int temp=q.front();
+    q.pop();
     insertAtTop(temp, q);
-    s.push(temp);
+    q.push(temp);
 
 }
 
@@ -23,6 +23,13 @@ void reverse(queue <int> & q){
     insertAtTop(temp, q);
 }
 
+void display(queue <int> q){
+    while(!q.empty()){
+        cout<<q.front()<<" ";
+        q.pop();
+    } 
+}
+
 int main(){
     queue <int> q;
     q.push(1);
@@ -32,6 +39,7 @@ int main(){
     q.push(5);
 
     reverse(q);
+    display(q);
 
     return 0;
 }
