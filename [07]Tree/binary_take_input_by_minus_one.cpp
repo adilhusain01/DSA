@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class BinaryTreeNode
@@ -68,8 +68,46 @@ void inOrder(BinaryTreeNode *root)
     cout << root->data << " ";
 }
 
+void levelOrder(BinaryTreeNode *root)
+{
+    queue<BinaryTreeNode *> q;
+    q.push(root);
+    q.push(NULL);
+
+    while (!q.empty())
+    {
+        BinaryTreeNode *temp = q.front();
+
+        if (temp == NULL)
+        {
+            cout << endl;
+            q.pop();
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+            cout << temp->data << " ";
+            q.pop();
+
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
+}
+
 int main()
 {
+    // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
     BinaryTreeNode *root = insertNode();
     cout << "PreOrderTraversal : ";
     preOrder(root);
@@ -79,6 +117,10 @@ int main()
     cout << endl;
     cout << "InOrderTraversal : ";
     inOrder(root);
+    cout << endl;
+    cout << "LevelOrderTraversal : " << endl;
+    ;
+    levelOrder(root);
     cout << endl;
 
     return 0;
