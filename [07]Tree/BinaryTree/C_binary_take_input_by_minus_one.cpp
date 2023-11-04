@@ -74,6 +74,8 @@ void levelOrder(BinaryTreeNode *root)
     q.push(root);
     q.push(NULL);
 
+    cout << endl;
+
     while (!q.empty())
     {
         BinaryTreeNode *temp = q.front();
@@ -105,23 +107,65 @@ void levelOrder(BinaryTreeNode *root)
     }
 }
 
+void insertLevel(BinaryTreeNode *&root)
+{
+    queue<BinaryTreeNode *> q;
+    int data;
+    cout << "Enter the data for root : ";
+    cin >> data;
+    root = new BinaryTreeNode(data);
+    q.push(root);
+
+    while (!q.empty())
+    {
+        BinaryTreeNode *temp = q.front();
+        q.pop();
+
+        int leftData;
+        cout << "Enter left node for " << temp->data << " : ";
+        cin >> leftData;
+
+        if (leftData != -1)
+        {
+            temp->left = new BinaryTreeNode(leftData);
+            q.push(temp->left);
+        }
+
+        int rightData;
+        cout << "Enter right node for " << temp->data << " : ";
+        cin >> rightData;
+
+        if (rightData != -1)
+        {
+            temp->right = new BinaryTreeNode(rightData);
+            q.push(temp->right);
+        }
+    }
+}
+
 int main()
 {
-    // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
-    BinaryTreeNode *root = insertNode();
-    cout << "PreOrderTraversal : ";
-    preOrder(root);
-    cout << endl;
-    cout << "PostOrderTraversal : ";
-    postOrder(root);
-    cout << endl;
-    cout << "InOrderTraversal : ";
-    inOrder(root);
-    cout << endl;
-    cout << "LevelOrderTraversal : " << endl;
-    ;
+    // // 1 2 4 -1 -1 5 -1 -1 3 6 -1 -1 7 -1 -1
+    // BinaryTreeNode *root = insertNode();
+    // cout << "PreOrderTraversal : ";
+    // preOrder(root);
+    // cout << endl;
+    // cout << "PostOrderTraversal : ";
+    // postOrder(root);
+    // cout << endl;
+    // cout << "InOrderTraversal : ";
+    // inOrder(root);
+    // cout << endl;
+    // cout << "LevelOrderTraversal : " << endl;
+    // ;
+    // levelOrder(root);
+    // cout << endl;
+
+    // 1 2 3 4 5 6 7 -1 -1 -1 -1 -1 -1 -1 -1
+    BinaryTreeNode *root = NULL;
+    insertLevel(root);
+
     levelOrder(root);
-    cout << endl;
 
     return 0;
 }
