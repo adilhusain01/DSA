@@ -1,8 +1,10 @@
 Not Done : 
 
 1. Reverse Level order Traversal
-2. Count leaf Nodes
+2. height of tree
 
 Done  :
 
-1.
+1.Count Leaves
+2. Pre/In/Post/Level Order Traversal
+3. -1/Level Input

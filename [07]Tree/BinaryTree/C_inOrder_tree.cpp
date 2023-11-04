@@ -16,8 +16,7 @@ BinaryTreeNode *insertNode()
     int val;
     cout << "Enter the data : ";
     cin >> val;
-
-    if (val == -1)
+    a if (val == -1)
     {
         return NULL;
     }
@@ -32,22 +31,23 @@ BinaryTreeNode *insertNode()
     return root;
 }
 
-void preOrder(BinaryTreeNode *root)
+void inOrder(BinaryTreeNode *root)
 {
     if (root == nullptr)
     {
         return;
     }
 
+    inOrder(root->left);
+    inOrder(root->right);
     cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
 }
 
 int main()
 {
     BinaryTreeNode *root = insertNode();
-    preOrder(root);
+    cout << "PreOrderTraversal : ";
+    inOrder(root);
 
     return 0;
 }

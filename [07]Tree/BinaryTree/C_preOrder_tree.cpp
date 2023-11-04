@@ -47,6 +47,7 @@ void preOrder(BinaryTreeNode *root)
 int main()
 {
     BinaryTreeNode *root = insertNode();
+    cout << "PreOrderTraversal : ";
     preOrder(root);
 
     return 0;
