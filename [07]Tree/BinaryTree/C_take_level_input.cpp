@@ -1,28 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class BinaryTreeNode
+class Node
 {
 public:
     int data;
-    BinaryTreeNode *left;
-    BinaryTreeNode *right;
+    Node *left;
+    Node *right;
 
-    BinaryTreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
 };
 
-BinaryTreeNode *insertLevel()
+Node *insertLevel()
 {
-    queue<BinaryTreeNode *> q;
+    queue<Node *> q;
     int data;
     cout << "Enter the data for root : ";
     cin >> data;
-    BinaryTreeNode *root = new BinaryTreeNode(data);
+    Node *root = new Node(data);
     q.push(root);
 
     while (!q.empty())
     {
-        BinaryTreeNode *temp = q.front();
+        Node *temp = q.front();
         q.pop();
 
         int leftData;
@@ -31,7 +31,7 @@ BinaryTreeNode *insertLevel()
 
         if (leftData != -1)
         {
-            temp->left = new BinaryTreeNode(leftData);
+            temp->left = new Node(leftData);
             q.push(temp->left);
         }
 
@@ -41,7 +41,7 @@ BinaryTreeNode *insertLevel()
 
         if (rightData != -1)
         {
-            temp->right = new BinaryTreeNode(rightData);
+            temp->right = new Node(rightData);
             q.push(temp->right);
         }
     }
@@ -49,7 +49,7 @@ BinaryTreeNode *insertLevel()
     return root;
 }
 
-void preOrder(BinaryTreeNode *root)
+void preOrder(Node *root)
 {
     if (root == nullptr)
     {
@@ -63,7 +63,7 @@ void preOrder(BinaryTreeNode *root)
 
 int main()
 {
-    BinaryTreeNode *root = insertLevel();
+    Node *root = insertLevel();
     cout << "PreOrderTraversal : ";
     preOrder(root);
 

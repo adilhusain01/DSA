@@ -3,30 +3,33 @@ using namespace std;
 
 template <typename T>
 
-class BinaryNode{
-    public:
+class Node
+{
+public:
     T data;
-    BinaryNode* left;
-    BinaryNode* right;
+    Node *left;
+    Node *right;
 
-    BinaryNode(T data){
-        this->data=data;
-        left=NULL;
-        right=NULL;
+    Node(T data)
+    {
+        this->data = data;
+        left = NULL;
+        right = NULL;
     }
 };
 
-int main() {
-    BinaryNode<int>* root=new BinaryNode<int>(1);
-    BinaryNode<int>* leftchild= new BinaryNode<int>(2);
-    BinaryNode<int>* rightchild= new BinaryNode<int>(3);
- 
-    root->left=leftchild;
-    root->right=rightchild;
+int main()
+{
+    Node<int> *root = new Node<int>(1);
+    Node<int> *leftchild = new Node<int>(2);
+    Node<int> *rightchild = new Node<int>(3);
 
-    cout<<"Root data -> "<<root->data<<endl;
-    cout<<"Left child data -> "<<root->left->data<<endl;
-    cout<<"Right child data -> "<<root->right->data<<endl;
+    root->left = leftchild;
+    root->right = rightchild;
+
+    cout << "Root data -> " << root->data << endl;
+    cout << "Left child data -> " << root->left->data << endl;
+    cout << "Right child data -> " << root->right->data << endl;
 
     return 0;
 }

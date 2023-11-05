@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct BinaryTreeNode
+struct Node
 {
     int data;
-    BinaryTreeNode *left;
-    BinaryTreeNode *right;
+    Node *left;
+    Node *right;
 
-    BinaryTreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
 };
 
-BinaryTreeNode *
+Node *
 takeInput()
 {
     cout << "##  This is a -1 Input  ##" << endl
@@ -21,12 +21,12 @@ takeInput()
 
     if (data != -1)
     {
-        BinaryTreeNode *temp = new BinaryTreeNode(data);
+        Node *temp = new Node(data);
 
-        BinaryTreeNode *leftChild = takeInput();
+        Node *leftChild = takeInput();
         temp->left = leftChild;
 
-        BinaryTreeNode *rightChild = takeInput();
+        Node *rightChild = takeInput();
         temp->right = rightChild;
 
         return temp;
@@ -37,7 +37,7 @@ takeInput()
     }
 }
 
-BinaryTreeNode *levelInput()
+Node *levelInput()
 {
     cout << "##  This is a level Input  ##"
          << "\n"
@@ -47,13 +47,13 @@ BinaryTreeNode *levelInput()
     cout << "Enter the data : ";
     cin >> data;
 
-    queue<BinaryTreeNode *> q;
-    BinaryTreeNode *root = new BinaryTreeNode(data);
+    queue<Node *> q;
+    Node *root = new Node(data);
     q.push(root);
 
     while (!q.empty())
     {
-        BinaryTreeNode *temp = q.front();
+        Node *temp = q.front();
         q.pop();
 
         int leftData;
@@ -61,7 +61,7 @@ BinaryTreeNode *levelInput()
         cin >> leftData;
         if (leftData != -1)
         {
-            BinaryTreeNode *leftNode = new BinaryTreeNode(leftData);
+            Node *leftNode = new Node(leftData);
             temp->left = leftNode;
             q.push(leftNode);
         }
@@ -71,7 +71,7 @@ BinaryTreeNode *levelInput()
         cin >> rightData;
         if (rightData != -1)
         {
-            BinaryTreeNode *rightNode = new BinaryTreeNode(rightData);
+            Node *rightNode = new Node(rightData);
             temp->right = rightNode;
             q.push(rightNode);
         }
@@ -80,7 +80,7 @@ BinaryTreeNode *levelInput()
     return root;
 }
 
-void preOrder(BinaryTreeNode *root)
+void preOrder(Node *root)
 {
     if (root == nullptr)
     {
@@ -92,7 +92,7 @@ void preOrder(BinaryTreeNode *root)
     preOrder(root->right);
 }
 
-void postOrder(BinaryTreeNode *root)
+void postOrder(Node *root)
 {
     if (root == nullptr)
     {
@@ -104,7 +104,7 @@ void postOrder(BinaryTreeNode *root)
     postOrder(root->right);
 }
 
-void inOrder(BinaryTreeNode *root)
+void inOrder(Node *root)
 {
     if (root == nullptr)
     {
@@ -116,9 +116,9 @@ void inOrder(BinaryTreeNode *root)
     cout << root->data << " ";
 }
 
-void levelOrder(BinaryTreeNode *root)
+void levelOrder(Node *root)
 {
-    queue<BinaryTreeNode *> q;
+    queue<Node *> q;
     if (root == nullptr)
     {
         return;
@@ -129,7 +129,7 @@ void levelOrder(BinaryTreeNode *root)
 
     while (!q.empty())
     {
-        BinaryTreeNode *temp = q.front();
+        Node *temp = q.front();
         q.pop();
 
         if (temp == NULL)
@@ -159,7 +159,7 @@ void levelOrder(BinaryTreeNode *root)
 
 int main()
 {
-    BinaryTreeNode *root = levelInput();
+    Node *root = levelInput();
     levelOrder(root);
 
     return 0;

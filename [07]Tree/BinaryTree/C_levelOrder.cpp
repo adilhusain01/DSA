@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class BinaryTreeNode
+class Node
 {
 public:
     int data;
-    BinaryTreeNode *left;
-    BinaryTreeNode *right;
+    Node *left;
+    Node *right;
 
-    BinaryTreeNode(int val) : data(val), left(nullptr), right(nullptr) {}
+    Node(int val) : data(val), left(nullptr), right(nullptr) {}
 };
 
-BinaryTreeNode *insertNode()
+Node *insertNode()
 {
     int val;
     cout << "Enter the data : ";
@@ -21,9 +21,9 @@ BinaryTreeNode *insertNode()
         return NULL;
     }
 
-    BinaryTreeNode *root = new BinaryTreeNode(val);
-    BinaryTreeNode *leftChild = insertNode();
-    BinaryTreeNode *rightChild = insertNode();
+    Node *root = new Node(val);
+    Node *leftChild = insertNode();
+    Node *rightChild = insertNode();
 
     root->left = leftChild;
     root->right = rightChild;
@@ -31,9 +31,9 @@ BinaryTreeNode *insertNode()
     return root;
 }
 
-void levelOrder(BinaryTreeNode *root)
+void levelOrder(Node *root)
 {
-    queue<BinaryTreeNode *> q;
+    queue<Node *> q;
     q.push(root);
     q.push(NULL);
 
@@ -41,7 +41,7 @@ void levelOrder(BinaryTreeNode *root)
 
     while (!q.empty())
     {
-        BinaryTreeNode *temp = q.front();
+        Node *temp = q.front();
 
         if (temp == NULL)
         {
@@ -72,7 +72,7 @@ void levelOrder(BinaryTreeNode *root)
 
 int main()
 {
-    BinaryTreeNode *root = insertNode();
+    Node *root = insertNode();
     cout << "PreOrderTraversal : ";
     levelOrder(root);
 
