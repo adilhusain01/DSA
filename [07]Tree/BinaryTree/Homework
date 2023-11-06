@@ -2,9 +2,8 @@ Not Done :
 
 1. Reverse Level order Traversal
 2. diameter of binary tree
-3. Identical tree
-4. Mirror the tree
-5. evry node except leaf equals sum of its left subtree and right subtree
+3. Mirror the tree
+4. SUM TREE (evry node except leaf equals sum of its left subtree and right subtree)
 
 Done  :
 
@@ -13,3 +12,4 @@ Done  :
 3. -1/Level Input
 4. height of tree uisng recursion
 5. Balanced tree (tree's height balanced)
+6. identical tree
