@@ -9,57 +9,6 @@ struct Node
     Node(int data) : data(data), left(nullptr), right(nullptr) {}
 };
 
-void levelOrder(Node *root)
-{
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
-
-    cout << endl;
-
-    while (!q.empty())
-    {
-        Node *temp = q.front();
-
-        if (temp == NULL)
-        {
-            cout << endl;
-            q.pop();
-            if (!q.empty())
-            {
-                q.push(NULL);
-            }
-        }
-        else
-        {
-            cout << temp->data << " ";
-            q.pop();
-
-            if (temp->left)
-            {
-                q.push(temp->left);
-            }
-
-            if (temp->right)
-            {
-                q.push(temp->right);
-            }
-        }
-    }
-}
-
-void preOrder(Node *root)
-{
-    if (root == nullptr)
-    {
-        return;
-    }
-
-    cout << root->data << " ";
-    preOrder(root->left);
-    preOrder(root->right);
-}
-
 Node *insertToBST(Node *root, int data)
 {
     if (root == nullptr)
@@ -104,13 +53,36 @@ Node *insertInput()
     return root;
 }
 
+int maxNode(Node *root)
+{
+    if (root->right == nullptr)
+    {
+        return root->data;
+    }
+
+    int right = maxNode(root->right);
+
+    return right;
+}
+
+int minNode(Node *root)
+{
+    if (root->left == nullptr)
+    {
+        return root->data;
+    }
+
+    int left = minNode(root->left);
+
+    return left;
+}
+
 int main()
 {
     Node *root = insertInput();
-    cout << "LevelOrder -> ";
-    levelOrder(root);
-    cout << "\n\nPreOrder -> ";
-    preOrder(root);
+
+    cout << "\nMaxNode -> " << maxNode(root) << endl;
+    cout << "MinNode -> " << minNode(root) << endl;
 
     return 0;
 }
