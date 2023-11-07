@@ -57,29 +57,18 @@ pair<bool, int> checkSum(Node *root)
         return p;
     }
 
+    if (root->left == nullptr && root->right == nullptr)
+    {
+        pair<bool, int> p = make_pair(true, root->data);
+        return p;
+    }
+
     pair<bool, int> left = checkSum(root->left);
     pair<bool, int> right = checkSum(root->right);
 
     pair<bool, int> ans;
 
-    bool flag;
-
-    if (root->left && root->right)
-    {
-        flag = (left.second + right.second == root->data);
-    }
-    else if (root->left && !root->right)
-    {
-        flag = (left.second == root->data);
-    }
-    else if (!root->left && root->right)
-    {
-        flag = (right.second == root->data);
-    }
-    else
-    {
-        flag = true;
-    }
+    bool flag = (left.second + right.second == root->data);
 
     ans.second = left.second + right.second + root->data;
     ans.first = left.first && right.first && flag;
