@@ -1,11 +1,12 @@
 Not Done :
 
-
-4. Delete Node in BST
-
+6. kth smalllest element
+7. kth largest element
 
 Done :
 
 1. Make BST
 2. search Node in BST
 3. min/max in BST
+4. Delete Node in BST (O(h) or worst O(n))
+5. Validate BST O(h) -> O(n)
