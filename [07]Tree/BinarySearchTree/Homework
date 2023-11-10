@@ -1,7 +1,6 @@
 Not Done :
 
-6. kth smalllest element
-7. kth largest element
+9. LCA in a BST
 
 Done :
 
@@ -10,3 +9,6 @@ Done :
 3. min/max in BST
 4. Delete Node in BST (O(h) or worst O(n))
 5. Validate BST O(h) -> O(n)
+6. kth smalllest element
+7. kth largest element
+8. Predecessor and Successor in BST
